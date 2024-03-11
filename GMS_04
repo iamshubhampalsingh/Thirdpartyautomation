@@ -1,0 +1,16 @@
+import uiautomator2 as ui2
+from time import sleep
+
+driver=ui2.Device("192.168.2.115:5555")
+
+driver.open_notification()
+
+driver(text="Play Store").click()
+sleep(2)
+if driver.xpath('//androidx.compose.ui.platform.ComposeView/android.view.View[1]/android.view.View[2]').exists:
+    print("We are in playstore and internet is working fine")
+else:
+    print("We are not in playstore,Internet not connected")
+
+# back button
+driver.xpath('//*[@resource-id="com.android.systemui:id/back"]')
