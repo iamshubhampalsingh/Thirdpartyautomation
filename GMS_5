@@ -1,0 +1,18 @@
+import uiautomator2 as ui2
+from time import sleep
+
+driver=ui2.Device("192.168.2.115:5555")
+
+driver(text="Play Store").click()
+sleep(2)
+if driver.xpath('//*[@content-desc="Signed in as Lava Software lava2022nhq@gmail.comAccount and settings."]/android.widget.FrameLayout[1]/android.widget.ImageView[1]').exists:
+    print("Gmail login already done")
+else:
+    print("Gmail login not done")
+
+# back button
+driver.xpath('//*[@resource-id="com.android.systemui:id/back"]').click()
+sleep(2)
+driver.xpath('//*[@resource-id="com.android.systemui:id/back"]').click()
+sleep(2)
+driver.xpath('//*[@resource-id="com.android.systemui:id/back"]').click()
