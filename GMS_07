@@ -1,0 +1,26 @@
+import uiautomator2 as ui2
+from time import sleep
+
+driver=ui2.Device("192.168.2.115:5555")
+
+driver(text="Play Store").click()
+sleep(2)
+driver.xpath('//*[@text="Categories"]').click()
+sleep(2)
+driver.xpath('//*[@text="Watch apps"]').click()
+sleep(2)
+driver.click(0.212, 0.254)
+sleep(2)
+driver.xpath('//*[@text="Install"]').click()
+sleep(120)
+if driver.xpath('//*[@text="Open"]').exists:
+    print("The app is downloaded")
+else:
+    print("The app is not downloaded")
+
+# back button
+driver.xpath('//*[@resource-id="com.android.systemui:id/back"]').click()
+sleep(2)
+driver.xpath('//*[@resource-id="com.android.systemui:id/back"]').click()
+sleep(2)
+driver.xpath('//*[@resource-id="com.android.systemui:id/back"]').click()
