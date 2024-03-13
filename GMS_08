@@ -1,0 +1,22 @@
+import uiautomator2 as ui2
+from time import sleep
+
+driver=ui2.Device("192.168.2.71:5555")
+
+driver(text="Play Store").click()
+sleep(2)
+driver.click(0.898, 0.066)
+sleep(2)
+driver.xpath('//*[@text="Library"]').click()
+sleep(2)
+if driver.xpath('//*[@text="Wishlist"]').exists:
+    print("Wishlist is present")
+else:
+    print("Wishlist is not present")
+
+# back button
+driver.xpath('//*[@resource-id="com.android.systemui:id/back"]').click()
+sleep(2)
+driver.xpath('//*[@resource-id="com.android.systemui:id/back"]').click()
+sleep(2)
+driver.xpath('//*[@resource-id="com.android.systemui:id/back"]').click()
