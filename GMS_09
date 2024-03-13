@@ -1,0 +1,25 @@
+import uiautomator2 as ui2
+from time import sleep
+
+driver=ui2.Device("192.168.2.115:5555")
+
+driver(text="Play Store").click()
+sleep(2)
+driver.xpath('//*[@text="Categories"]').click()
+sleep(2)
+driver.xpath('//*[@text="Watch apps"]').click()
+sleep(2)
+driver.click(0.212, 0.254)
+sleep(2)
+if driver.xpath('//*[@text="Uninstall"]').exists:
+    print("The call app is installed")
+else:
+    print("The call app is not installed")
+
+# back button
+driver.xpath('//*[@resource-id="com.android.systemui:id/back"]').click()
+sleep(2)
+driver.xpath('//*[@resource-id="com.android.systemui:id/back"]').click()
+sleep(2)
+driver.xpath('//*[@resource-id="com.android.systemui:id/back"]').click()
+
