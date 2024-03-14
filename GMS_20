@@ -1,0 +1,37 @@
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.71:5555"
+
+# Create a Device object for the sender device
+sender = ui2.Device('cf611ff9')
+
+# Create a Device object for the receiver device
+driver = ui2.Device(receiver_device_serial)
+time.sleep(2)
+driver.xpath('//*[@text="Play Store"]').click()
+time.sleep(2)
+driver.xpath('//*[@text="Search Apps & Games"]').set_text("bigbasket")
+time.sleep(2)
+driver.xpath('//androidx.compose.ui.platform.ComposeView/android.view.View[1]/android.view.View[1]/android.view.View[2]/android.view.View[1]/android.view.View[2]').click()
+time.sleep(2)
+driver.xpath('//*[@resource-id="com.android.systemui:id/center_group"]')
+time.sleep(2)
+driver.xpath('//*[@content-desc="Messages"]').click()
+time.sleep(2)
+driver.xpath('//*[@resource-id="com.google.android.apps.messaging:id/action_zero_state_search"]').set_text("DVS")
+# back button
+driver.xpath('//*[@resource-id="com.google.android.apps.messaging:id/spanned_autocomplete_listview"]/android.widget.TextView[1]').click()
+time.sleep(2)
+driver.xpath('//*[@resource-id="com.google.android.apps.messaging:id/compose_message_text"]').set_text("hello how are you")
+time.sleep(2)
+driver.xpath('//*[@resource-id="com.google.android.apps.messaging:id/send_message_button_container"]').click()
+time.sleep(2)
+driver.xpath('//*[@resource-id="com.android.systemui:id/back"]').click()
+time.sleep(2)
+driver.xpath('//*[@resource-id="com.android.systemui:id/back"]').click()
+time.sleep(2)
+driver.xpath('//*[@resource-id="com.android.systemui:id/back"]').click()
