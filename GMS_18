@@ -1,0 +1,52 @@
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.71:5555"
+
+# Create a Device object for the sender device
+sender = ui2.Device('cf611ff9')
+
+# Create a Device object for the receiver device
+driver = ui2.Device(receiver_device_serial)
+time.sleep(2)
+driver.xpath('//*[@text="Play Store"]').click()
+time.sleep(2)
+driver.xpath('//*[@text="Search Apps & Games"]').set_text("bigbasket")
+time.sleep(2)
+driver.xpath('//androidx.compose.ui.platform.ComposeView/android.view.View[1]/android.view.View[1]/android.view.View[2]/android.view.View[1]/android.view.View[2]').click()
+time.sleep(2)
+sender.xpath('//*[@content-desc="Phone"]').click()
+time.sleep(2)
+sender.xpath('//*[@resource-id="com.google.android.dialer:id/dialpad_fab"]').click()
+time.sleep(2)
+sender.xpath('//*[@resource-id="com.google.android.dialer:id/eight"]').click()
+time.sleep(2)
+sender.xpath('//*[@resource-id="com.google.android.dialer:id/zero"]').click()
+time.sleep(2)
+driver.xpath('//*[@resource-id="com.google.android.dialer:id/one"]').click()
+time.sleep(2)
+driver.xpath('//*[@resource-id="com.google.android.dialer:id/zero"]').click()
+time.sleep(2)
+driver.xpath('//*[@resource-id="com.google.android.dialer:id/two"]').click()
+time.sleep(2)
+driver.xpath('//*[@resource-id="com.google.android.dialer:id/zero"]').click()
+time.sleep(2)
+driver.xpath('//*[@resource-id="com.google.android.dialer:id/five"]').click()
+time.sleep(2)
+driver.xpath('//*[@resource-id="com.google.android.dialer:id/seven"]').click()
+time.sleep(2)
+driver.xpath('//*[@resource-id="com.google.android.dialer:id/four"]').click()
+time.sleep(2)
+driver.xpath('//*[@resource-id="com.google.android.dialer:id/four"]').click()
+time.sleep(2)
+driver.xpath('//*[@resource-id="com.google.android.dialer:id/dialpad_voice_call_button"]').click()
+# back button
+time.sleep(20)
+driver.xpath('//*[@resource-id="com.android.systemui:id/back"]').click()
+time.sleep(2)
+driver.xpath('//*[@resource-id="com.android.systemui:id/back"]').click()
+time.sleep(2)
+driver.xpath('//*[@resource-id="com.android.systemui:id/back"]').click()
